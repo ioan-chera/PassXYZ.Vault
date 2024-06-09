@@ -1,11 +1,18 @@
-﻿namespace PassXYZ.Vault;
+﻿
+using System.Diagnostics;
+
+namespace PassXYZ.Vault;
 
 public partial class App : Application
 {
 	public App()
 	{
 		InitializeComponent();
-
-		MainPage = new AppShell();
 	}
+
+
+    protected override Window CreateWindow(IActivationState activationState)
+    {
+		return new PxWindow(new MainPage());
+    }
 }
